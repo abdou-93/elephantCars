@@ -1,0 +1,5 @@
+<div *ngFor="let car of carService.carsStream | async">
+  <p> key is {{car.key}} car Brand is {{car.brand}}, country is {{car.country}}, year {{car.year}},
+    and car image URL is {{car.imageURL}}.</p>
+  <button (click)="remove(car.key)"> remove </button>
+</div>
