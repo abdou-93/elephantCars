@@ -13,7 +13,7 @@ export class CreateCarComponent implements OnInit {
   date: any;
   imageURL: string;
 
-  constructor(private carService: CarService) { }
+  constructor(public carService: CarService) { }
 
   ngOnInit() {
   }
