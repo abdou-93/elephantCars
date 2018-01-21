@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Car} from '../models/car';
 import {CarService} from '../services/car.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-car',
@@ -13,7 +14,7 @@ export class CreateCarComponent implements OnInit {
   date: any;
   imageURL: string;
 
-  constructor(public carService: CarService) { }
+  constructor(public carService: CarService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,7 @@ export class CreateCarComponent implements OnInit {
         imageURL: this.imageURL
       });
       this.carService.addCar(car);
+      this.router.navigate(['/home']);
     } catch (e) {
       console.log('error on submit ', e);
     }

@@ -1,0 +1,8 @@
+.error-page {
+  background-color: #f6f6f9;
+  max-width: max-content;
+  margin: auto;
+  font-size: 36px;
+  padding: 8px;
+  box-shadow: 3px 4px #d4cfcf;
+}

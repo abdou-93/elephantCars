@@ -1,5 +1,19 @@
-<div *ngFor="let car of carService.carsStream | async">
-  <p> key is {{car.key}} car Brand is {{car.brand}}, country is {{car.country}}, year {{car.year}},
-    and car image URL is {{car.imageURL}}.</p>
-  <button (click)="remove(car.key)"> remove </button>
-</div>
+<table class="table table-bordered text-center">
+  <thead class="table-dark">
+  <tr>
+    <th>Brand</th>
+    <th>Country</th>
+    <th>Year</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of carService.carsStream | async">
+    <td><a class="card-link" [routerLink]="['/car/' + car.key]">{{car.brand}}</a>
+    </td>
+    <td>{{car.country}}</td>
+    <td>{{car.year}}</td>
+    <td><button class="btn btn-danger w-75" (click)="remove(car.key)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

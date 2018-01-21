@@ -26,17 +26,10 @@ export class CarDetailsComponent implements OnInit , OnDestroy {
     try {
       this.carSubscribe = this.carService.getCar(id).subscribe(car => {
         this.car = car;
-        if (car == null) {
-          this.redirect();
-        }
       });
     } catch (e) {
       console.log('error get car ', e);
     }
-  }
-
-  private redirect() {
-    this.router.navigate(['/home']);
   }
 
   ngOnDestroy(): void {
