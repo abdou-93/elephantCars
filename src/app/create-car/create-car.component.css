@@ -1,21 +1,12 @@
-*[role="form"] {
-  max-width: 530px;
-  padding: 15px;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 0.3em;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
 }
-
-*[role="form"] h2 {
-  margin-left: 5em;
-  margin-bottom: 1em;
-}
-
-.custom-style {
-  float: right;
-}
-
-.custom-form-style {
-  border: 1px solid;
-  overflow: auto;
+.form-container > h2 {
+  margin: auto;
 }

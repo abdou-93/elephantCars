@@ -1,19 +1,31 @@
-<table class="table table-bordered text-center">
-  <thead class="table-dark">
-  <tr>
-    <th>Brand</th>
-    <th>Country</th>
-    <th>Year</th>
-    <th>Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let car of carService.carsStream | async">
-    <td><a class="card-link" [routerLink]="['/car/' + car.key]">{{car.brand}}</a>
-    </td>
-    <td>{{car.country}}</td>
-    <td>{{car.year}}</td>
-    <td><button class="btn btn-danger w-75" (click)="remove(car.key)">Delete</button></td>
-  </tr>
-  </tbody>
-</table>
+<div class="cars-container mat-elevation-z8 mat-typography">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Brand Column -->
+    <ng-container matColumnDef="brand">
+      <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
+      <mat-cell *matCellDef="let car"><button mat-button color="primary" [routerLink]="['/car/' + car.key]">{{car.brand}}</button> </mat-cell>
+    </ng-container>
+
+    <!-- Country Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+      <mat-cell *matCellDef="let car"> {{car.country}} </mat-cell>
+    </ng-container>
+
+    <!-- Year Column -->
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+      <mat-cell *matCellDef="let car"> {{car.year}} </mat-cell>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+      <mat-cell *matCellDef="let car"><button mat-raised-button color="warn" class="custom-button" (click)="remove(car.key)">Delete</button></mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

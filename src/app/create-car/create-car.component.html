@@ -1,44 +1,24 @@
-<div class="container">
-  <form class="custom-form-style form-horizontal" role="form" (ngSubmit)="onSubmit()">
-    <h2>Create a new car</h2>
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <h2>Create a new car</h2>
+  <mat-form-field>
+    <input  matInput [(ngModel)]="brand" name="brand" placeholder="Brand">
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="brand" class="col-sm-3 control-label">Brand</label>
-      <div class="custom-style col-sm-9">
-        <input type="text" id="brand" [(ngModel)]="brand" name="brand" placeholder="Brand" class="form-control" autofocus>
-      </div>
-    </div>
+  <mat-form-field>
+    <mat-select [(ngModel)]="country" name="country" placeholder="Country">
+      <mat-option *ngFor="let country of carService.countriesStream | async" value="{{country.value}}">{{country.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="country" class="col-sm-3 control-label">Country</label>
-      <div class="custom-style col-sm-9">
-        <select id="country" [(ngModel)]="country" name="country" class="form-control">
-          <option></option>
-          <option *ngFor="let country of carService.countriesStream | async">
-            {{country.value}}
-          </option>
-        </select>
-      </div>
-    </div>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker startView="year" #picker></mat-datepicker>
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="date" class="col-sm-3 control-label">Year </label>
-      <div class="custom-style col-sm-9">
-        <input type="month" id="date" [(ngModel)]="date" name="date" class="form-control">
-      </div>
-    </div>
+  <mat-form-field>
+    <input  matInput [(ngModel)]="imageURL" name="imageURL" placeholder="Image URL">
+  </mat-form-field>
 
-    <div class="form-group">
-      <label for="imageURL" class="col-sm-3 control-label">Image URL</label>
-      <div class="custom-style col-sm-9">
-        <input type="text" id="imageURL" [(ngModel)]="imageURL" name="imageURL" placeholder="Image URL" class="form-control" autofocus>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="float-right m-2">
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
-      </div>
-    </div>
-  </form>
-</div>
+  <button type="submit" mat-raised-button color="primary">Save</button>
+</form>

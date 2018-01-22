@@ -2,6 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -15,7 +20,7 @@ import { CarService } from './services/car.service';
 import { UserService } from './services/user.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
-import {AuthGuardService} from './services/auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { CreateCarComponent } from './create-car/create-car.component';
 import { CarsTableComponent } from './cars-table/cars-table.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
@@ -38,7 +43,10 @@ import { CarDetailsComponent } from './car-details/car-details.component';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MaterialModule
   ],
   providers: [CarService, UserService, AuthGuardService],
   bootstrap: [AppComponent]

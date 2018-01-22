@@ -1,8 +1,8 @@
-<nav *ngIf="(userService.isLoggedInStream | async)"
-     class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" [routerLink]="['/home']">Elephant Cars</a>
-  <ul class="navbar-nav mr-auto"></ul>
-  <button type="button" class="btn btn-success" (click)="logOut()">Logout</button>
-</nav>
-
+<mat-toolbar *ngIf="(userService.isLoggedInStream | async)" color="primary">
+  <mat-toolbar-row>
+    <span [routerLink]="['/home']" style="cursor: pointer;">Elephant Cars</span>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="logOut()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 

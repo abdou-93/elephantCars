@@ -2,7 +2,20 @@
   background-color: #f6f6f9;
   max-width: max-content;
   margin: auto;
+  margin-top: 10px;
   font-size: 36px;
   padding: 8px;
   box-shadow: 3px 4px #d4cfcf;
+}
+.car-card {
+  margin: auto;
+  margin-top: 10px;
+  width: 40%;
+}
+.car-card-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.font-bold {
+  font-weight: bold;
 }
