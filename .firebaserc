@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "fir-demo-e3b80"
+    "default": "fir-demo-e3b80",
+    "elephantCars": "elephantcars-74ae7"
   }
 }
